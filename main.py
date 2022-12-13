@@ -1,3 +1,3 @@
 import os
 
-os.system('python 2022/day6/script.py')
+os.system('python 2022/day8/script.py')
