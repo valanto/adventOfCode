@@ -1,7 +1,7 @@
 import os
 import re
 
-def part2():
+def generate_lists():
   list_1 = []
   list_2 = []
   file = open(os.path.dirname(os.path.realpath(__file__)) + "/input.txt", "r")
@@ -10,6 +10,11 @@ def part2():
       joined = re.match(r"^(\d+)\s+(\d+)$", line.strip())
       list_1.append(int(joined[1]))
       list_2.append(int(joined[2]))
+
+  return (list_1, list_2)
+
+def part2():
+  (list_1, list_2) = generate_lists()
   
   total = 0
   
@@ -24,14 +29,8 @@ def part2():
   return total
 
 def part1():
-  list_1 = []
-  list_2 = []
-  file = open(os.path.dirname(os.path.realpath(__file__)) + "/input.txt", "r")
-  for line in file:
-    if line.strip():
-      joined = re.match(r"^(\d+)\s+(\d+)$", line.strip())
-      list_1.append(int(joined[1]))
-      list_2.append(int(joined[2]))
+  (list_1, list_2) = generate_lists()
+
   list_1.sort()
   list_2.sort()
   
